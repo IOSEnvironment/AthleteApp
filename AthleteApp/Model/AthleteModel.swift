@@ -14,6 +14,8 @@ struct Athlete {
     var lastName: String
     var position: String
     var time: Date
+    var image: String
+    var notes: String
     
    /// Sorted array in acending order in terms of positions (Alphabetically)
    ///
