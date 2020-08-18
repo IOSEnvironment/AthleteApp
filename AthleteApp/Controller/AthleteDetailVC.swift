@@ -25,6 +25,11 @@ class AthleteDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        /// Set relevent data to  UIComponents.
+        ///
+        /// - Parameter value: nil
+        /// - Returns: nil
         guard let url = URL(string: athlete?.image ?? "") else { return }
         
         let options = ImageLoadingOptions(
@@ -32,7 +37,6 @@ class AthleteDetailVC: UIViewController {
             transition: .fadeIn(duration: 0.33)
         )
         Nuke.loadImage(with: url, options: options, into: imgProfile)
-        
         
         lblName.text = "\(athlete?.firstName ?? "") \(athlete?.lastName ?? "")"
         lblPosition.text = "\(athlete?.position ?? "")"
