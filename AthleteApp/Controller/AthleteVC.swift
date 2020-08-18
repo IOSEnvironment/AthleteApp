@@ -11,8 +11,12 @@ import UIKit
 class AthleteVC: UITableViewController {
     
     //MARK:- Properties
-    var athletes: [Athlete] = Athlete.getSortedArray()
+    //Part One
+    //var athletes: [Athlete] = Athlete.getSortedArray()
     
+    //Part Two
+    var athletes: [Athlete] = Athlete.getSortedDateArray()
+    var toggle = false
     
     //MARK:- Outlet
     @IBOutlet var athleteTableview: UITableView!
@@ -20,7 +24,18 @@ class AthleteVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    //MARK:- Actions
+    /// Toggle button helps to sorted the data by date and name.
+    ///
+    /// - Parameter value: Any
+    /// - Returns: nil
+    @IBAction func btnFilterAction(_ sender: Any) {
+        toggle = !toggle
+        athletes = toggle ? Athlete.getFilterbyLastname() : Athlete.getSortedDateArray()
+        athleteTableview.reloadData()
+    }
+    
     
     // MARK: - Table view data source
     /// Tableview Datasource methods help us to create all tableview cell with the avialable data.
